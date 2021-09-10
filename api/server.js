@@ -2,10 +2,12 @@ const express = require('express');
 const helmet = require('helmet');
 const server = express();
 const projectsRouter = require('./project/router')
+const resourcesRouter = require('./resource/router')
 
 server.use(helmet());
 server.use(express.json());
 server.use('/api/projects', projectsRouter);
+server.use('/api/resources', resourcesRouter)
 
 server.use((err, req, res, next) => { // eslint-disable-line
     res.status(500).json({
