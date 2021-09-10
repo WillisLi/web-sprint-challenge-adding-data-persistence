@@ -26,7 +26,7 @@ exports.up = async function(knex) {
                 .onUpdate('RESTRICT')
         })
         .createTable('project_resources', table => {
-            table.integer('proj_res_id')
+            table.increments('proj_res_id')
             
             table.integer('project_id')
                 .unsigned()
@@ -44,7 +44,6 @@ exports.up = async function(knex) {
                 .onDelete('RESTRICT')
                 .onUpdate('RESTRICT')
         })
-        // .defaultTo() doc in case of need in future
 };
 
 exports.down = async function(knex) {
